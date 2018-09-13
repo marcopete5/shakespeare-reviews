@@ -1,0 +1,78 @@
+
+/* reviewContainer component */
+.reviewContainer {
+    padding: 10px 0px;
+    border-bottom: 1px solid #333;
+    margin: auto;
+    width: 524px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* Sort Component */
+.dropdowns {
+    width: 524px;
+    display: flex;
+    position: relative;
+    right: 25px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 610px){
+    /* ReviewContainer Component */
+    .reviewContainer {
+        padding: 7px;
+        border-bottom: 1px solid #333;
+        margin: 30px;
+        width: 90%;
+    }
+
+    /* Sort Component */
+    .dropdowns {
+        width: 90%;
+    }
+}
+
+/* Review Component */
+#author {
+    padding: 0px 20px;
+    position: relative;
+    bottom: 17px;
+}
+
+.selectTitles {
+    font-size: 15px;
+}
+
+.filter {
+    padding: 20px;
+}
+
+.selectOptions {
+    width: 100px;
+    height: 30px;
+}
+
+@media (max-width: 800px){
+    #author {
+        font-size: 14px;
+        padding: 0px 10px;
+        position: relative;
+        bottom: 17px;
+    }
+}
+
+
+/* Header component */
+
+#starbox {
+    border: 1px solid black;
+    height: 30px;
+    width: 300px;
+    display: inline-block;
+}
+#innerStarbox {
+    background-color: #f6c033;
+    height: 100%;
+}
