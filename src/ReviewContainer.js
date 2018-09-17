@@ -183,14 +183,29 @@ class ReviewContainer extends Component {
         }
     }
 
+    addComment = (comment, id) => {
+        this.setState(prevState => {
+            const reviews = [...prevState.reviews]
+            const updatedObject = reviews.find(review => {
+                return review.id === id 
+            })
+            updatedObject.comment = comment
+            return {
+                reviews
+            }
+        })
+    }
+
     handleSearch = e => {
-        // this.setState(prevState => {
-        //     return { 
-        //         searchTerm: e.target.value,
-        //         filtering: prevState.searchTerm.length > 0 ? false : true,
-        //         filteredReviews: prevState.filteredReviews.filter(review => review.comment.toLowerCase().includes(prevState.searchTerm.toLowerCase()))
-        //     }
-        // })
+        let {value} = e.target;
+            this.setState(prevState => {
+                const rev = [...prevState.reviews]
+                return { 
+                    searchTerm: value,
+                    filtering: this.state.searchTerm.length > 0 ? true : false,
+                    filteredReviews: rev.filter(review => review.comment.toLowerCase().includes(prevState.searchTerm.toLowerCase()))
+                }
+            })        
     }
 
     render() {
@@ -201,6 +216,7 @@ class ReviewContainer extends Component {
                                     author = {review.author}
                                     id = {review.id}
                                     load = {this.load}
+                                    addComment = {this.addComment}
                              />)
         
         const filteredReviews = this.state.filteredReviews.map((review, i) => 
@@ -210,6 +226,7 @@ class ReviewContainer extends Component {
                                     author = {review.author}
                                     id = {review.id}
                                     load = {this.load}
+                                    addComment = {this.addComment}
                              />)
         
         const display = this.state.loading ? 'none' : 'block';
@@ -224,8 +241,11 @@ class ReviewContainer extends Component {
                                 average={this.state.average} 
                                 stars={this.state.stars}
                                 />
-                        <Search value={this.state.searchTerm} handleChange={this.handleSearch}>
-                            Search
+                        <Search value={this.state.searchTerm} name='comments' handleChange={this.handleSearch}>
+                            Search author reviews
+                        </Search>
+                        <Search value={this.state.searchTerm} name='authors' handleChange={this.handleSearch}>
+                            Search by author
                         </Search>
                         <div className="dropdowns">
                             <div className="filter">

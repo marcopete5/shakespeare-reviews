@@ -20,6 +20,7 @@ class Review extends Component {
     componentDidMount(){
         axios.get(`http://shakespeare.podium.co/api/reviews/${this.props.id}`,{headers: {Authorization:  'koOheljmQX'}}).then(res => {
             this.setState({comment: res.data.data.body, loading: false})
+            this.props.addComment(res.data.data.body, this.props.id)
         })
     }
 
