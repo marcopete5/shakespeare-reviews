@@ -244,9 +244,6 @@ class ReviewContainer extends Component {
                         <Search value={this.state.searchTerm} name='comments' handleChange={this.handleSearch}>
                             Search author reviews
                         </Search>
-                        <Search value={this.state.searchTerm} name='authors' handleChange={this.handleSearch}>
-                            Search by author
-                        </Search>
                         <div className="dropdowns">
                             <div className="filter">
                                 <p>SORT BY</p>
